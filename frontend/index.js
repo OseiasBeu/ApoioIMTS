@@ -5,9 +5,10 @@ let caminhoCadeiraImg = '/imgs/poltrona.svg'
 
 
 axios.get(cadeiras).then(function (response) {
-    console.log(Object.entries(response.data[1])[2])
+    // console.log(Object.entries(response.data)
+    // console.log(response.data)
     for (let cadeira = 1; cadeira < response.data.length; cadeira ++) {
-        console.log(response.data[cadeira])
+        console.log(response.data[cadeira].cordinates +  response.data[cadeira].occupation)
         // blocos.innerHTML = +`<article>${Object.entries(response.data[cadeira])[1]}</article>`;
     }
     // console.log(listarTodasAsPropriedades(response.data))
@@ -19,8 +20,8 @@ axios.get(cadeiras).then(function (response) {
 //   blocos.appendChild(img);
 // };
 
-img.onload = function() {
-    blocos.innerHTML =+ `<img src=${img.src}    />`
-  };
+// img.onload = function() {
+//     blocos.innerHTML =+ `<img src=${img.src}    />`
+//   };
   
-img.src = caminhoCadeiraImg;
+// img.src = caminhoCadeiraImg;

@@ -1,18 +1,20 @@
 let cadeiras = 'http://localhost:3000/ChoicePlace'
 let blocos = document.querySelector('#templo');
-let BA = document.querySelector('#blocoA')
-let BB = document.querySelector('#blocoB')
-let BC = document.querySelector('#blocoC')
-let BD = document.querySelector('#blocoD')
+let button = document.querySelector('button');
+let BA = document.querySelector('#blocoA');
+let BB = document.querySelector('#blocoB');
+let BC = document.querySelector('#blocoC');
+let BD = document.querySelector('#blocoD');
 
 async function getPlaces() {
     try {
         const response = await axios.get('http://localhost:3000/ChoicePlace');
         let lugares = response.data;
+        // lugares = lugares.sort()
         for (let NC = 1; NC < lugares.length; NC++) {
             if (lugares[NC].cordinates[0] == 'A') {
-                console.log(`Bloco: ${lugares[NC].cordinates[0]} Cadeira Nº: ${lugares[NC].cordinates[1]}`);
-                BA.innerHTML += `<button>${lugares[NC].cordinates[0]}${lugares[NC].cordinates[1]}</button>`
+                // console.log(`Bloco: ${lugares[NC].cordinates[0]} Cadeira Nº: ${lugares[NC].cordinates[1]}`);
+                BA.innerHTML += `<button onclick=changeColor(this) >${lugares[NC].cordinates[0]}${lugares[NC].cordinates[1]}</button>`
             } else if (lugares[NC].cordinates[0] == 'B') {
                 BB.innerHTML += `<button>${lugares[NC].cordinates[0]}${lugares[NC].cordinates[1]}</button>`
             } else if (lugares[NC].cordinates[0] == 'C') {
@@ -30,4 +32,15 @@ async function getPlaces() {
     }
 }
 
+
+
+
+function changeColor(button) {
+    button.style.backgroundColor = 'black'
+}
+
+
+
 getPlaces();
+
+// button.onClick(this);

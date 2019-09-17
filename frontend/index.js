@@ -10,7 +10,7 @@ axios.get(cadeiras).then(function (response) {
     for (let cadeira = 1; cadeira < response.data.length; cadeira ++) {
         console.log(response.data[cadeira].cordinates +  response.data[cadeira].occupation)
         // blocos.innerHTML = +`<article>${Object.entries(response.data[cadeira])[1]}</article>`;
-    }
+    }  
     // console.log(listarTodasAsPropriedades(response.data))
 });
 

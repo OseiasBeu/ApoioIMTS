@@ -39,8 +39,8 @@ app.post('/TakePlace/true', function(req, res) {
             res.send('Aconteceu um ERRO!!!!');
             return;
         } else {
-            res.status(200).send("1 document updated")
-            console.log("1 document updated");
+            res.status(200).send("DOCUMENTO ATUALIZADO")
+            console.log(`1 document updated`);
         }
 
     });

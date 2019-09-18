@@ -50,6 +50,14 @@
 button {
     width: 10%;
     height: 5%;
-    border: 1px dashed red;
-    background-color: brown;
+    border: 1px dashed yellow;
+    font-size: 10pt;
+}
+
+#true {
+    background-color: red;
+}
+
+#false {
+    background-color: green;
 }

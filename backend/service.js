@@ -16,12 +16,12 @@ app.use(cors());
 // =========================---MÉTODOS DE CONSULTA---=================================
 app.get('/', (req, res) => {
     res.send('<h1>API em funcionamento!</h1>');
-    let cursor = db.collection('apoio').find()
-    console.log(cursor)
+    let cursor = db.collection('apoio').find().sort({ "cordinates": 1 })
+    console.log("TESTE DE FUNCIONAMENTO EXECUTADO COM SUCESSO!")
 });
 
 app.get('/ChoicePlace', function(req, res) {
-    db.collection('apoio').find().toArray(function(erro, dados) {
+    db.collection('apoio').find().sort({ 'cordinates': 1 }).toArray(function(erro, dados) {
         if (erro) {
             res.status(500).send('Aconteceu um ERRO!!!!');
             return;

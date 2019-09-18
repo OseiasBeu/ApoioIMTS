@@ -35,7 +35,7 @@
 
 #middle {
     width: 100%;
-    height: 80vh;
+    height: 100vh;
     display: flex;
     align-items: center;
     justify-content: space-around;
@@ -75,7 +75,6 @@
 #lateral {
     display: flex;
     flex-direction: column;
-    /* width: 100%; */
     height: 100%
 }
 
@@ -103,7 +102,6 @@ button {
 #true {
     background-color: red;
     background-image: url('imgs/1chair.svg');
-    /* background-size: cover; */
     background-position: center;
     background-repeat: no-repeat;
     color: transparent;
@@ -115,4 +113,15 @@ button {
     background-position: center;
     background-repeat: no-repeat;
     color: transparent;
+}
+
+
+/* ṚESPONSIVE */
+
+#escolheBLoco {
+    display: none;
+}
+
+.indicaBLoco {
+    display: none;
 }

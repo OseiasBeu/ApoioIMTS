@@ -1,12 +1,11 @@
-let cacheName = 'meu-app-cache-v1';
+let cacheName = 'meu-app-cache-v5';
 let filesToCache = [
     '/',
-    'index.html',
-    'index.js',
-    'responsive.js',
-    'index.css',
-    'responsive.css',
-    'packge.json'
+    '/index.html',
+    '/index.js',
+    '/responsive.js',
+    '/index.css',
+    '/responsive.css'
 ];
 
 self.addEventListener('install', function(event) {

@@ -25,7 +25,7 @@ async function getPlaces() {
 function geraButton(lugares) {
     console.log("mudar cor")
         // console.log(lugares)
-    BA.innerHTML = '';
+        // BA.innerHTML = '';
     for (let NC = 0; NC <= lugares.length; NC++) {
         if (lugares[NC].cordinates[0] == 'A') {
             let ocp = [lugares[NC].occupation, 'A', NC]

@@ -96,6 +96,7 @@ MongoClient.connect(url, {
     app.listen(`${port}`, () => {
         console.log(`=================================================`)
         console.log(`Servidor funcionando na porta ${port}!`)
+        console.log(`PRESSIONE 'CTRL + C' PARA SAIR`)
         console.log(`=================================================`)
     })
 })

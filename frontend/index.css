@@ -2,6 +2,8 @@
     margin: 0;
     padding: 0;
     text-align: center;
+    background-color: black;
+    color: whitesmoke;
 }
 
 #templo {
@@ -37,28 +39,80 @@
     display: flex;
     align-items: center;
     justify-content: space-around;
+    box-sizing: border-box;
 }
 
 .bloco {
-    background-color: gray;
+    background-color: #291511;
     width: 24.5%;
     height: 95%;
     display: flex;
     flex-flow: row wrap;
 }
 
+#superior {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-evenly;
+    list-style-type: none;
+    width: 100%;
+    height: min-content;
+}
+
+#superior>li {
+    width: 10%;
+    border: none;
+    height: min-content;
+    border: 1px solid black;
+}
+
+.lateral {
+    width: 1.5%;
+    text-align: justify;
+    font-size: 15pt;
+}
+
+#lateral {
+    display: flex;
+    flex-direction: column;
+    /* width: 100%; */
+    height: 100%
+}
+
+#lateral>li {
+    height: 10%;
+    width: 90%;
+    text-align: justify;
+    border: 1px solid black;
+}
+
+span {
+    height: 4%;
+    background-color: black;
+}
+
 button {
     width: 10%;
-    height: 5%;
-    border: 1px dashed yellow;
+    height: 9.09%;
+    border: none;
     font-size: 10pt;
     cursor: pointer;
+    box-sizing: border-box;
 }
 
 #true {
     background-color: red;
+    background-image: url('imgs/1chair.svg');
+    /* background-size: cover; */
+    background-position: center;
+    background-repeat: no-repeat;
+    color: transparent;
 }
 
 #false {
     background-color: green;
+    background-image: url('imgs/1chair.svg');
+    background-position: center;
+    background-repeat: no-repeat;
+    color: transparent;
 }

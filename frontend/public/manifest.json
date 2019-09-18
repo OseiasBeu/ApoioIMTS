@@ -1,0 +1,19 @@
+{
+    "name": "Apoio IMTS",
+    "short_name": "Apoio IMTS",
+    "icons": [{
+            "src": "imgs/IMTS_logo.svg",
+            "sizes": "192x192",
+            "type": "image/svg"
+        },
+        {
+            "src": "imgs/IMTS_logo2.svg",
+            "sizes": "512x512",
+            "type": "image/svg"
+        }
+    ],
+    "start_url": "index.html",
+    "display": "fullscreen",
+    "background_color": "#3E4EB8",
+    "theme_color": "#2F3BA2"
+}

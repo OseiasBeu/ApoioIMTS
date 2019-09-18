@@ -5,7 +5,7 @@
     "main": "index.js",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
-        "dev": " sudo nodemon service.js"
+        "start": "nodemon service.js"
     },
     "author": "Oséias Beu",
     "license": "ISC",

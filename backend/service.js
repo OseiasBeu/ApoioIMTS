@@ -5,7 +5,7 @@ let url = 'mongodb+srv://admin:26031998boxe@@cluster0-b3pli.mongodb.net/IMTS'
 const cors = require('cors');
 const bodyParser = require('body-parser');
 let app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
 
 app.use(bodyParser.urlencoded({ extended: true }))
     // app.use(bodyParser());

@@ -52,6 +52,7 @@ button {
     height: 5%;
     border: 1px dashed yellow;
     font-size: 10pt;
+    cursor: pointer;
 }
 
 #true {

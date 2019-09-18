@@ -29,7 +29,7 @@ function geraButton(lugares) {
     for (let NC = 0; NC <= lugares.length; NC++) {
         if (lugares[NC].cordinates[0] == 'A') {
             let ocp = [lugares[NC].occupation, 'A', NC]
-            BA.innerHTML += `<button id=${lugares[NC].occupation} value =${ocp} onclick=changeColor(this)>${lugares[NC].cordinates[0]}${NC}</button>`
+            BA.innerHTML += `<button id=${lugares[NC].occupation} value =${ocp} onclick=changeColor(this)>${lugares[NC].cordinates[0]}${lugares[NC].cordinates[1]}</button>`
         }
     }
 }

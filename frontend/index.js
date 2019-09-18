@@ -11,77 +11,63 @@ async function getPlaces() {
     try {
         const response = await axios.get('http://localhost:3000/ChoicePlace');
         let lugares = response.data;
-        for (let NC = 0; NC <= lugares.length; NC++) {
+        // BA.innerHTML = "LUGARES"
+        geraButton(lugares);
 
-            if (lugares[NC].cordinates[0] == 'A') {
 
-                console.log(lugares[NC].cordinates[0])
-                let ocp = [lugares[NC].occupation, "A", NC]
-                BA.innerHTML += `<button id=${lugares[NC].occupation} value =${ocp} onclick=changeColor(this)>${lugares[NC].cordinates[0]}${lugares[NC].cordinates[1]}</button>`
-
-            } else if (lugares[NC].cordinates[0] == 'B') {
-                let ocp = [lugares[NC].occupation, "B", NC]
-                BB.innerHTML += `<button id=${lugares[NC].occupation} value =${ocp} onclick=changeColor(this)>${lugares[NC].cordinates[0]}${NC}</button>`
-            }
-            // else if (lugares[NC].cordinates[0] == 'C') {
-            //     BC.innerHTML += `<button>${lugares[NC].cordinates[0]}${NC}</button>`
-            // } else if (lugares[NC].cordinates[0] == 'D') {
-            //     BD.innerHTML += `<button>${lugares[NC].cordinates[0]}${NC}</button>`
-            // }
-        }
     } catch (error) {
-        console.error(error);
+        // console.error(error);
     }
 }
 
-getPlaces();
 
 
-function occupy(cordinals) {
-    console.log(cordinals)
-    axios.post('http://localhost:3000/TakePlace/true', {
-            cordinates: [cordinals[1], parseInt(cordinals[2])]
-        })
-        .then(function(response) {
-            console.log(response);
-        })
-        .catch(function(error) {
-            console.log(error);
-        });
+function geraButton(lugares) {
+    console.log("mudar cor")
+        // console.log(lugares)
+    BA.innerHTML = '';
+    for (let NC = 0; NC <= lugares.length; NC++) {
+        if (lugares[NC].cordinates[0] == 'A') {
+            let ocp = [lugares[NC].occupation, 'A', NC]
+            BA.innerHTML += `<button id=${lugares[NC].occupation} value =${ocp} onclick=changeColor(this)>${lugares[NC].cordinates[0]}${lugares[NC].cordinates[1]}</button>`
+        } else if (lugares[NC].cordinates[0] == 'B') {
+            let ocp = [lugares[NC].occupation, 'B', NC]
+            BB.innerHTML += `<button id=${lugares[NC].occupation} value =${ocp} onclick=changeColor(this)>${lugares[NC].cordinates[0]}${lugares[NC].cordinates[1]}</button>`
+        } else if (lugares[NC].cordinates[0] == 'C') {
+            let ocp = [lugares[NC].occupation, 'C', NC]
+            BC.innerHTML += `<button id=${lugares[NC].occupation} value =${ocp} onclick=changeColor(this)>${lugares[NC].cordinates[0]}${lugares[NC].cordinates[1]}</button>`
+        } else if (lugares[NC].cordinates[0] == 'D') {
+            let ocp = [lugares[NC].occupation, 'D', NC]
+            BD.innerHTML += `<button id=${lugares[NC].occupation} value =${ocp} onclick=changeColor(this)>${lugares[NC].cordinates[0]}${lugares[NC].cordinates[1]}</button>`
+        }
+    }
 }
 
-function takeOff(cordinals) {
-    console.log("entrou na take off")
-    console.log(cordinals)
-    axios.post('http://localhost:3000/TakePlace/false', {
-            cordinates: [cordinals[1], parseInt(cordinals[2])]
-        })
-        .then(function(response) {
-            console.log(response);
-        })
-        .catch(function(error) {
-            console.log(error);
-        });
-}
 
-// {"cordinates": ["A",1]}
 function changeColor(button) {
     let splt = button.value.split(',', 3)
     console.log(splt)
     if (splt[0] == 'false') {
-
-        console.log(`falso:${splt[0]}`)
-        occupy(splt)
-        button.style.backgroundColor = 'red'
-
-    } else {
-        console.log(`verdadeiro:${splt[0]}`)
-        takeOff(splt)
-        button.style.backgroundColor = 'green'
-
-
+        axios({
+            method: 'post',
+            url: 'http://localhost:3000/TakePlace/true',
+            data: {
+                cordinates: [splt[1], parseInt(splt[2])],
+                occupation: false
+            }
+        });
+    } else if (splt[0] == 'true') {
+        axios({
+            method: 'post',
+            url: 'http://localhost:3000/TakePlace/false',
+            data: {
+                cordinates: [splt[1], parseInt(splt[2])],
+                occupation: true
+            }
+        });
     }
-    // location.reload();
-    // localStorage.clear();
-    // sessionStorage.clear()
+    location.reload();
+    // getPlaces();
 }
+
+getPlaces();

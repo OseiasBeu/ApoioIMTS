@@ -21,14 +21,15 @@ MongoClient.connect(url, {
 }, (err, client) => {
     if (err) return console.log(err)
     db = client.db('IMTS')
-        //return
-    for (let cadeira = 0; cadeira <= 99; cadeira++) {
+    for (let cadeira = 300; cadeira <= 399; cadeira++) {
         // dictionaryobj.Add(key, item)
-        db.collection('apoio').insertOne({ cordinates: ["A", cadeira], occupation: false },
+        db.collection('apoio').insertOne({ cordinates: ['D', cadeira], occupation: false },
             function(err, res) {
-                // if (err) throw err;
-                console.log(`Cadeira:${cadeira} do Bloco: A inserida com sucesso na base!`);
+                console.log(`Cadeira:${cadeira} do Bloco: D inserida com sucesso na base!`);
             });
 
     }
+    console.log('=======================================================')
+    console.log("Insert successfully completed!")
+    console.log('=======================================================')
 })

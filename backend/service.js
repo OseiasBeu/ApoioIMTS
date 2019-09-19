@@ -1,10 +1,10 @@
 const express = require('express');
 let MongoClient = require('mongodb').MongoClient;
-let url = 'mongodb+srv://admin:26031998boxe@@cluster0-b3pli.mongodb.net/IMTS'
+// let url = 'mongodb+srv://@cluster0-b3pli.mongodb.net/IMTS'
+let url = 'mongodb+srv://admin:26031998boxe@@cluster0-b3pli.mongodb.net/IMTS?retryWrites=true&w=majority'
 const cors = require('cors');
 const bodyParser = require('body-parser');
 let app = express();
-const port = process.env.PORT || 3000;
 
 app.use(bodyParser.urlencoded({ extended: true }))
     // app.use(bodyParser());
@@ -92,7 +92,9 @@ MongoClient.connect(url, {
     if (err) return console.log(err)
     db = client.db('IMTS')
 
-    app.listen(`${port}`, () => {
+
+    const port = process.env.PORT || 3000;
+    app.listen(port, () => {
         console.log(`=================================================`)
         console.log(`Servidor funcionando na porta ${port}!`)
         console.log(`PRESSIONE 'CTRL + C' PARA SAIR`)

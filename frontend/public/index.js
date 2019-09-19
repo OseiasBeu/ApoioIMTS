@@ -1,5 +1,5 @@
-let cadeiras = 'http://localhost:3000/ChoicePlace'
-let changeOCPTrue = 'http://localhost:3000/TakePlace/true'
+let cadeiras = 'https://apoiomtsvox.herokuapp.com/ChoicePlace'
+let changeOCPTrue = 'https://apoiomtsvox.herokuapp.com/TakePlace/true'
 let blocos = document.querySelector('#templo');
 let button = document.querySelector('button');
 let BA = document.querySelector('#blocoA');
@@ -9,7 +9,7 @@ let BD = document.querySelector('#blocoD');
 
 async function getPlaces() {
     try {
-        const response = await axios.get('http://localhost:3000/ChoicePlace');
+        const response = await axios.get('https://apoiomtsvox.herokuapp.com/ChoicePlace');
         let lugares = response.data;
         // BA.innerHTML = "LUGARES"
         geraButton(lugares);
@@ -50,7 +50,7 @@ function changeColor(button) {
     if (splt[0] == 'false') {
         axios({
             method: 'post',
-            url: 'http://localhost:3000/TakePlace/true',
+            url: 'https://apoiomtsvox.herokuapp.com/TakePlace/true',
             data: {
                 cordinates: [splt[1], parseInt(splt[2])],
                 occupation: false
@@ -59,7 +59,7 @@ function changeColor(button) {
     } else if (splt[0] == 'true') {
         axios({
             method: 'post',
-            url: 'http://localhost:3000/TakePlace/false',
+            url: 'https://apoiomtsvox.herokuapp.com/TakePlace/false',
             data: {
                 cordinates: [splt[1], parseInt(splt[2])],
                 occupation: true
